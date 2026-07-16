@@ -1,0 +1,385 @@
+
+
+
+
+.inicio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 4rem 0;
+    background-color: black;
+    background-image: url(../imgs/fundo\ inicio.png);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.init-txt h1{
+    font-family: "Orbitron", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f5f5f5;
+
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 2px #ffffff,
+        0 0 8px rgba(255, 255, 255, .25),
+        3px 3px 0 rgba(0, 0, 0, .7);
+}
+.init-txt h2{
+    font-family: "Orbitron", sans-serif;
+    font-size: 4rem;
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    background: linear-gradient(
+        to bottom,
+        #fff9b2 0%,
+        #ffd84d 20%,
+        #ffbf00 55%,
+        #d88900 100%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        2px 2px 0 #ffd84d,
+        0 0 15px rgba(255,180,0,.35),
+        0 0 35px rgba(255,180,0,.2);
+}
+.init-txt p{
+    font-family:"Orbitron",sans-serif;
+
+    font-size:1rem;
+    font-weight:700;
+
+    color:#00d4ff;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    animation: neon 1.8s infinite alternate;
+    width: 600px;
+}
+@keyframes neon{
+
+    0%{
+
+        text-shadow:
+        0 0 3px #00d4ff,
+        0 0 6px #00d4ff,
+        0 0 12px #00d4ff,
+        0 0 22px #009dff;
+
+        opacity:.85;
+
+    }
+
+    20%{
+
+        opacity:.55;
+
+        text-shadow:
+        0 0 2px #00d4ff,
+        0 0 4px #00d4ff,
+        0 0 8px #009dff;
+
+    }
+
+    40%{
+
+        opacity:1;
+
+        text-shadow:
+        0 0 4px #00d4ff,
+        0 0 10px #00d4ff,
+        0 0 20px #00d4ff,
+        0 0 40px #0099ff;
+
+    }
+
+    70%{
+
+        opacity:.75;
+
+        text-shadow:
+        0 0 2px #00d4ff,
+        0 0 8px #00d4ff,
+        0 0 16px #00d4ff;
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        text-shadow:
+        0 0 5px #00d4ff,
+        0 0 12px #00d4ff,
+        0 0 25px #00d4ff,
+        0 0 45px #00d4ff;
+
+    }
+
+}
+@media (max-width:1200px){
+    .inicio{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+@media (max-width:700px){
+    .inicio{
+        padding: 5rem 0;
+    }
+    .init-txt h1{
+        font-size: 1.5rem;
+    }
+    .init-txt h2{
+        font-size: 2rem;
+    }
+    .init-txt{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .init-txt p{
+        width: 80%;
+        text-align: center;
+        align-items: center;
+    }
+    .inicio img{
+        width: 80%;
+
+    }
+}
+@media (max-width:500px){
+    .inicio{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+}
+
+.btn-cyber{
+    margin: 1rem 0;
+
+    position:relative;
+
+    width:200px;
+    height:45px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#2ec7ff;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+
+    background:rgba(5,18,35,.45);
+
+    border:2px solid #00aaff;
+
+    clip-path:polygon(
+        8% 0,
+        92% 0,
+        100% 50%,
+        92% 100%,
+        8% 100%,
+        0 50%
+    );
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:
+    inset 0 0 10px rgba(0,183,255,.25),
+    0 0 8px rgba(0,183,255,.35);
+
+}
+
+/* ===================== BRILHO INTERNO ===================== */
+
+.btn-cyber::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:4px;
+
+    border:1px solid rgba(0,200,255,.45);
+
+    clip-path:polygon(
+        8% 0,
+        92% 0,
+        100% 50%,
+        92% 100%,
+        8% 100%,
+        0 50%
+    );
+
+}
+
+/* ===================== LINHA DE BRILHO ===================== */
+
+.btn-cyber::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+
+    width:60px;
+    height:220%;
+
+    transform:rotate(25deg);
+
+    background:rgba(255,255,255,.18);
+
+    transition:.8s;
+
+}
+
+.btn-cyber:hover::after{
+
+    left:150%;
+
+}
+
+/* ===================== TEXTO ===================== */
+
+.btn-cyber span{
+
+    position:relative;
+
+    z-index:5;
+
+    text-shadow:
+    0 0 4px #00bfff,
+    0 0 10px rgba(0,183,255,.5);
+
+}
+
+/* ===================== SETA ===================== */
+
+.arrow{
+
+    position:absolute;
+
+    right:18px;
+
+    font-size:20px;
+
+    color:#2ec7ff;
+
+    text-shadow:
+    0 0 6px #00bfff,
+    0 0 12px #00bfff;
+
+    transition:.3s;
+
+}
+
+/* ===================== HOVER ===================== */
+
+.btn-cyber:hover{
+
+    color:white;
+
+    transform:translateY(-2px);
+
+    animation:neonPisca .75s infinite alternate;
+
+}
+
+.btn-cyber:hover .arrow{
+
+    transform:translateX(6px);
+
+}
+
+/* ===================== ANIMAÇÃO ===================== */
+
+@keyframes neonPisca{
+
+    0%{
+
+        box-shadow:
+        inset 0 0 8px rgba(0,183,255,.25),
+        0 0 8px rgba(0,183,255,.35);
+
+        filter:brightness(.9);
+
+    }
+
+    15%{
+
+        box-shadow:none;
+
+        filter:brightness(.4);
+
+    }
+
+    30%{
+
+        box-shadow:
+        inset 0 0 20px rgba(0,183,255,.7),
+        0 0 15px #00bfff,
+        0 0 30px #00bfff;
+
+        filter:brightness(1.2);
+
+    }
+
+    45%{
+
+        box-shadow:none;
+
+        filter:brightness(.6);
+
+    }
+
+    60%{
+
+        box-shadow:
+        inset 0 0 30px rgba(0,183,255,.7),
+        0 0 20px #00bfff,
+        0 0 40px #00bfff;
+
+    }
+
+    100%{
+
+        box-shadow:
+        inset 0 0 25px rgba(0,183,255,.7),
+        0 0 15px #00bfff,
+        0 0 35px #00bfff;
+
+    }
+
+}
