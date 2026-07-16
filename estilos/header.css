@@ -1,0 +1,557 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background: black;
+    color: white;
+    background-image: url(../imgs/fundo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width:600px) {
+    .header {
+        background-image: url(../imgs/fundo.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
+    }
+}
+
+.header img {
+    width: 200px;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/*==========================
+        MENU
+==========================*/
+
+.header-info ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 22px;
+
+    list-style: none;
+
+    transition: .35s;
+
+}
+
+.header-info ul li a {
+
+    cursor: pointer;
+    transition: .3s;
+
+}
+
+.header-info ul li a:hover {
+
+    color: #00d9ff;
+
+}
+
+/*==========================
+      BOTÃO MENU
+==========================*/
+
+.menu-toggle {
+
+    display: none;
+
+    width: 45px;
+    height: 45px;
+
+    background: transparent;
+
+    border: 2px solid #00d9ff;
+
+    color: #00d9ff;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 25px;
+
+    transition: .3s;
+
+}
+
+.menu-toggle:hover {
+
+    background: #00d9ff;
+    color: black;
+
+    box-shadow: 0 0 15px #00d9ff;
+
+}
+
+/*==========================
+      RESPONSIVO
+==========================*/
+
+@media(max-width:500px) {
+
+    .header {
+
+        justify-content: center;
+        gap: 20px;
+
+    }
+
+    .header img {
+
+        width: 170px;
+
+    }
+
+    /* botão aparece */
+
+    .menu-toggle {
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    /* menu escondido */
+
+    .header-info ul {
+
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 18px;
+
+        overflow: hidden;
+
+        max-height: 0;
+
+        opacity: 0;
+
+        transform: translateY(-15px);
+
+        transition:
+
+            max-height .45s ease,
+            opacity .35s ease,
+            transform .35s ease;
+
+    }
+
+    /* menu aberto */
+
+    .header-info ul.active {
+
+        max-height: 400px;
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+/*==========================
+      BUSCADOR
+==========================*/
+
+.search-container {
+
+    width: min(540px, 100%);
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    background: rgba(8, 12, 20, .95);
+
+    border: 2px solid #00bfff;
+
+    overflow: hidden;
+
+    clip-path: polygon(12px 0,
+            calc(100% - 12px) 0,
+            100% 12px,
+            100% calc(100% - 12px),
+            calc(100% - 12px) 100%,
+            12px 100%,
+            0 calc(100% - 12px),
+            0 12px);
+
+    animation:
+        neonBorder 2.5s ease-in-out infinite,
+        flicker 6s infinite;
+
+    transition: .3s;
+}
+
+/*==========================
+        INPUT
+==========================*/
+
+.search-container input {
+
+    flex: 1;
+    height: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: white;
+
+    padding: 0 18px;
+
+    font-size: 15px;
+    letter-spacing: .5px;
+
+}
+
+.search-container input::placeholder {
+
+    color: #7d8798;
+
+}
+
+/*==========================
+        BOTÃO
+==========================*/
+
+.search-container button {
+
+    width: 55px;
+    height: 100%;
+
+    background: transparent;
+
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    color: #00d9ff;
+
+    animation: neonIcon 2.5s ease-in-out infinite;
+
+    transition: .3s;
+
+}
+
+.search-container button:hover {
+
+    color: white;
+
+}
+
+/*==========================
+        FOCUS
+==========================*/
+
+.search-container:focus-within {
+
+    border-color: #7df9ff;
+
+    box-shadow:
+
+        0 0 12px #00ffff,
+        0 0 30px #00ffff,
+        0 0 60px rgba(0, 255, 255, .55),
+        inset 0 0 12px rgba(0, 255, 255, .20);
+
+}
+
+/*==========================
+      NEON
+==========================*/
+
+@keyframes neonBorder {
+
+    0% {
+
+        border-color: #00aaff;
+
+        box-shadow:
+
+            0 0 5px #00aaff,
+            0 0 10px #00aaff,
+            0 0 18px rgba(0, 170, 255, .35),
+            inset 0 0 5px rgba(0, 170, 255, .12);
+
+    }
+
+    25% {
+
+        border-color: #00d0ff;
+
+        box-shadow:
+
+            0 0 8px #00d0ff,
+            0 0 18px #00d0ff,
+            0 0 30px rgba(0, 208, 255, .55),
+            inset 0 0 8px rgba(0, 208, 255, .20);
+
+    }
+
+    50% {
+
+        border-color: #5cf8ff;
+
+        box-shadow:
+
+            0 0 12px #00ffff,
+            0 0 28px #00ffff,
+            0 0 45px rgba(0, 255, 255, .75),
+            0 0 70px rgba(0, 255, 255, .35),
+            inset 0 0 12px rgba(0, 255, 255, .25);
+
+    }
+
+    75% {
+
+        border-color: #00d0ff;
+
+        box-shadow:
+
+            0 0 8px #00d0ff,
+            0 0 18px #00d0ff,
+            0 0 30px rgba(0, 208, 255, .55),
+            inset 0 0 8px rgba(0, 208, 255, .20);
+
+    }
+
+    100% {
+
+        border-color: #00aaff;
+
+        box-shadow:
+
+            0 0 5px #00aaff,
+            0 0 10px #00aaff,
+            0 0 18px rgba(0, 170, 255, .35),
+            inset 0 0 5px rgba(0, 170, 255, .12);
+
+    }
+
+}
+
+/*==========================
+      FLICKER
+==========================*/
+
+@keyframes flicker {
+
+    0%,
+    18%,
+    22%,
+    55%,
+    100% {
+
+        opacity: 1;
+
+    }
+
+    20% {
+
+        opacity: .95;
+
+    }
+
+    24% {
+
+        opacity: .90;
+
+    }
+
+    56% {
+
+        opacity: .94;
+
+    }
+
+}
+
+/*==========================
+      ÍCONE
+==========================*/
+
+@keyframes neonIcon {
+
+    0% {
+
+        color: #00bfff;
+
+        filter:
+
+            drop-shadow(0 0 3px #00bfff) drop-shadow(0 0 8px #00bfff);
+
+    }
+
+    50% {
+
+        color: #a8ffff;
+
+        filter:
+
+            drop-shadow(0 0 6px #00ffff) drop-shadow(0 0 12px #00ffff) drop-shadow(0 0 20px #00ffff);
+
+    }
+
+    100% {
+
+        color: #00bfff;
+
+        filter:
+
+            drop-shadow(0 0 3px #00bfff) drop-shadow(0 0 8px #00bfff);
+
+    }
+
+}
+
+/*==========================
+      TABLET
+==========================*/
+
+@media(max-width:768px) {
+
+    .search-wrapper {
+
+        padding: 0 12px;
+
+    }
+
+    .search-container {
+
+        height: 45px;
+
+    }
+
+    .search-container input {
+
+        font-size: 14px;
+
+    }
+
+}
+
+/*==========================
+      CELULAR
+==========================*/
+
+@media(max-width:480px) {
+
+    .search-wrapper {
+
+        padding: 0 10px;
+
+    }
+
+    .search-container {
+
+        height: 42px;
+
+    }
+
+    .search-container input {
+
+        font-size: 13px;
+        padding: 0 12px;
+
+    }
+
+    .search-container button {
+
+        width: 45px;
+
+    }
+
+    .search-container button svg {
+
+        width: 18px;
+        height: 18px;
+
+    }
+
+}
+
+/*==========================
+      ATÉ 270px
+==========================*/
+
+@media(max-width:270px) {
+
+    .search-wrapper {
+
+        padding: 0 5px;
+
+    }
+
+    .search-container {
+
+        height: 38px;
+
+        border-width: 1.5px;
+
+        clip-path: polygon(8px 0,
+                calc(100% - 8px) 0,
+                100% 8px,
+                100% calc(100% - 8px),
+                calc(100% - 8px) 100%,
+                8px 100%,
+                0 calc(100% - 8px),
+                0 8px);
+
+    }
+
+    .search-container input {
+
+        font-size: 11px;
+        padding: 0 8px;
+
+    }
+
+    .search-container button {
+
+        width: 35px;
+
+    }
+
+    .search-container button svg {
+
+        width: 15px;
+        height: 15px;
+
+    }
+
+}
