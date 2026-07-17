@@ -39,6 +39,7 @@
 }
 .item-produtos img{
     width: 300px;
+    height: 300px;
 }
 .item-produtos h2{
     font-family: "Orbitron", sans-serif;
