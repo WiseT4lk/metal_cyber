@@ -17,5 +17,7 @@ botao.addEventListener("click", () => {
 
 });
 
-
+function novidades() {
+    alert("🚧 Novidades em breve!");
+}
 
